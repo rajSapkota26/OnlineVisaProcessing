@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="user/userbase::layout(~{::section})">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<title th:text="${title}">Document</title>
+</head>
+
+<body>
+	<section>
+		<div class="container">
+			<div class="row p-2">
+				<div class="col-md-6 offset-md-3">
+					<div class="card p-3 ">
+						<div class="card-body text-center">
+							<h2>CURRENT VISA APPLICATION STATUS</h2>
+						</div>
+						<div th:if="${va ==null}" class="text-center">Check History</div>
+						<div th:if="${va !=null}">
+							<div class="row mb-3">
+								<div class="col-md-6">
+									Your Visa Type: <span th:text="${va.visaType}"></span>
+								</div>
+								<div class="col-md-6">
+									Your Visa Status: <span th:text="${va.status}"></span>
+								</div>
+							</div>
+							<div class="row mb-3">
+								<div class="col-md-6">
+									Charge for apply: $<span th:text="${va.fees}"></span>
+								</div>
+								<div class="col-md-6">Payment Status: Null</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+</body>
+</html>

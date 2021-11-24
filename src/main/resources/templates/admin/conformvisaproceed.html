@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="admin/adminbase::layout(~{::section})">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<title th:text="${title}">Document</title>
+</head>
+
+<body>
+	<section>
+	<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card mt-4">
+                <div class="card-body">
+							<div class="text-center">
+								<h1>Visa Conformation</h1>
+								<p>
+									(For <span th:text="${vform.visaType}"></span>)
+								</p>
+								
+								<div class="row">
+									<div class="col-md-6">
+										<div class="mb-3">
+											<label for="exampleInputEmail1" class="form-label">Applicant
+												Name: <b th:text="${vform.fullName}">{}</b>
+											</label>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="mb-3">
+											<label for="exampleInputEmail1" class="form-label">From:
+												<b th:text="${vform.permanentAddress}">{}</b>
+											</label>
+										</div>
+									</div>
+
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="mb-3">
+											<label for="exampleInputEmail1" class="form-label">Passport
+												No : <b th:text="${vform.passportNo}">{}</b>
+											</label>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="mb-3">
+											<label for="exampleInputEmail1" class="form-label">
+												Visa Applied from: <b th:text="${vform.appliedPlace}">{}</b>
+											</label>
+										</div>
+									</div>
+
+								</div>
+							</div>
+							<form th:action="@{/admin/conformingvisa}" method="post" th:object="${vc}">
+                            <div class="row">
+                                <div class="col-md-6 ">
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Destination</label>
+                                        <input type="text" class="form-control" id="exampleInputEmail1"
+                                            th:value="Nepal"
+                                            aria-describedby="emailHelp">                                       
+                                    </div>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Visa type</label>
+                                       
+                                        <input type="text" class="form-control" id="exampleInputEmail1"
+                                            name="visaType" th:value="${vform.visaType}" 
+                                            aria-describedby="emailHelp">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Visa issue for</label>
+                                        <input  type="text" class="form-control" th:value="${vform.fullName}"
+                                            id="exampleInputEmail1" name="clientName" aria-describedby="emailHelp">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <div class="mb-3">
+                                            <label for="exampleInputEmail1" class="form-label">passportNo</label>
+                                            <input  type="text" class="form-control"th:value="${vform.passportNo}"
+                                                id="exampleInputEmail1" name="passportNo" aria-describedby="emailHelp">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Visa startingDate</label>
+                                        <input  type="date" class="form-control"
+                                            id="exampleInputEmail1" name="startingDate" aria-describedby="emailHelp">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <div class="mb-3">
+                                            <label for="exampleInputEmail1" class="form-label">Visa endingDate</label>
+                                            <input  type="date" class="form-control"
+                                                id="exampleInputEmail1" name="endingDate" aria-describedby="emailHelp">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center mt-2">
+                                <button type="submit" 
+                                    class="btn btn-outline-primary me-4">Conformed</button>
+                                <a href="/admin/allvisaapplications"
+                                    class="btn btn-outline-danger ">Cancel</a>
+                            </div>
+                        </form>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+	</section>
+
+</body>
+</html>

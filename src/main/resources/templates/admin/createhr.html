@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="admin/adminbase::layout(~{::section})">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<title th:text="${title}">Document</title>
+</head>
+
+<body>
+	<section>
+
+		<div class="card">
+			<div class="card-body ">
+				<div class="row p-3">
+					<div class="col-md-6 offset-md-3">
+						<form th:action="@{/admin/doRegister}" method="post" th:object="${user}">
+							<header class="text-center">Create new HR User</header>
+							<!-- error message  -->
+								<div th:if="${session.message}"
+									th:classappend="${session.message.type}"
+									class="alert  text-center" role="alert">
+									<p th:text="${session.message.content}"></p>
+									<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+								</div>
+							<div class="mb-3">
+								<label for="exampleInputEmail1" class="form-label">Full
+									name</label> <input type="text" class="form-control"
+									id="exampleInputEmail1" aria-describedby="emailHelp"
+									name="name" placeholder="Fullname">
+							</div>
+							<div class="mb-3">
+								<label for="exampleInputEmail1" class="form-label">Email</label>
+								<input type="text" class="form-control" id="exampleInputEmail1"
+									aria-describedby="emailHelp" name="email" placeholder="email">
+							</div>
+							<div class="mb-3">
+								<label for="exampleInputEmail1" class="form-label">Password</label>
+								<input type="password" class="form-control"
+									id="exampleInputEmail1" aria-describedby="emailHelp"
+									name="password" placeholder="password">
+							</div>
+							<div class="text-center">
+								<button type="submit" class="btn btn-outline-info mt-2">Submit</button>
+							</div>
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+</body>
+</html>

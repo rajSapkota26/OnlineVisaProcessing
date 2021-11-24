@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="user/userbase::layout(~{::section})">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<title th:text="${title}">Document</title>
+</head>
+
+<body>
+	<section>
+		<div class="container-fluid">
+			<div class="conatiner mt-3 border border-info p-2">
+				<div class="row">
+					<div class="col-md-10 offset-md-1">
+						<h1 class=" text-center">Advice for Online Visa Applicants</h1>
+						<p>In order to avoid long queues and unnecessary problems,
+							kindly submit a complete Online Visa Application form to the
+							Immigration Authority of Nepal in your first attempt! To do that,
+							here are few things you need to prepare:</p>
+						<ul>
+							<li>Please keep your valid passport at hand.</li>
+							<li>Ready a recent digital photograph (size: 1.5” x 1.5”) in
+								your removable device to upload your photograph for the
+								application.</li>
+							<li>Gather beforehand a detailed permanent residence
+								address, and detailed address in Nepal.</li>
+							<li>You need to provide telephone numbers—land-line and
+								mobile.</li>
+							<li>You need to provide your email address too.</li>
+							<li>The submitted application will remain in the system for
+								15 days. After 15 days, the application will be deleted
+								automatically from the system.</li>
+							<li>Once the application is successfully submitted, a
+								receipt will be sent to your email immediately.</li>
+							<li>Print the receipt and keep it with you as you need to
+								produce it before the Immigration Authority.</li>
+							<li>For your convenience, the deadline to contact the
+								Immigration Authority will be mentioned in the receipt.</li>
+							<li>The receipt also mentions about the documents you need
+								to produce before the Immigration Authority.</li>
+							<li>Please contact the Immigration Authority within 15 days
+								after the submission of application. For example, if you submit
+								your extension application today, and your visa is expiring the
+								next day, on the third day if you visit the Department of
+								Immigration, you will have to pay late fee of that day. In order
+								to prevent this sort of hassle, please submit your extension
+								application on time and get your visa renewed before crossing
+								the expire date.</li>
+							<li>When you contact the Immigration Authority, please make
+								sure you have the receipt and proper documents with you
+								including the necessary fee.</li>
+							<li>No on arrival visa for country list -
+								AFG,IRQ,CMR,GHA,SOM,SWZ,PSE,ZWE,NGA,ETH,LBR</li>
+
+						</ul>
+					</div>
+				</div>
+				<div class="text-center">
+					<a type="submit" class="btn btn-outline-dark" th:href="@{/user/information}">Start</a>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+
+
+</body>
+</html>

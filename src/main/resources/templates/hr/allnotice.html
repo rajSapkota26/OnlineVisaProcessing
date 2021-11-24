@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="hr/hrbase::layout(~{::section})">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<title th:text="${title}">Document</title>
+</head>
+
+<body>
+<section>
+<div class="container-fluid">
+			<div class="conatiner mt-3 border border-info p-2">
+				<div class="row">
+				<h2 class="text-center mt-4">Official Notice </h2>
+					<div class="col-md-6  mb-3" >
+						<div class="card">							
+							<div class="card-body">
+								<h1 class="card-title  fs-3">{{n.title}}</h1>
+								<div class="text-center">
+									<img src="{{n.image}}" height="350" width="500" alt="">
+								</div>
+								<p>{{n.content}}</p>
+							</div>
+
+						</div>
+					</div>
+					<div class="col-md-6  mb-3" >
+						<div class="card">							
+							<div class="card-body">
+								<h1 class="card-title  fs-3">{{n.title}}</h1>
+								<div class="text-center">
+									<img src="{{n.image}}" height="350" width="500" alt="">
+								</div>
+								<p>{{n.content}}</p>
+							</div>
+
+						</div>
+					</div>
+					
+
+				</div>
+			</div>
+		</div>
+</section>
+</body>
+</html>

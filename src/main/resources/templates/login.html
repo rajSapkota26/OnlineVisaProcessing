@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="homebase::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title th:text="${title}">Document</title>
+</head>
+<body>
+	<!-- this is custom login page -->
+	<section >
+
+		<div class="container-fluid bg-custom-2" style="height:90vh;">
+			<div class="row P-4 mb-4">
+				<div class="col-md-6 offset-md-3 mt-4 mb-4">
+					<div class="card p-4 mt-4">
+						<form th:action="@{/dologin}" method="post" class="mt-4">
+							<div class="mb-3">
+								<h3 class="text-center text-uppercase">Login here !!</h3>
+								<div th:if="${param.error}" class="alert alert-danger">
+									Invalid UserName and Password</div>
+								<div th:if="${param.logout}" class="alert alert-success">
+									Logged out!!!</div>
+								<!-- error message  -->
+								<div th:if="${session.message}"
+									th:classappend="${session.message.type}"
+									class="alert  text-center" role="alert">
+									<p th:text="${session.message.content}"></p>
+									<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+								</div>
+							</div>
+							<div class="mb-3">
+								<label for="username" class="form-label">Email:</label><br> <input
+									type="email" name="username"  id="username" class="form-control">
+							</div>
+							<div class="mb-3">
+								<label for="password" class="form-label">Password:</label><br>
+								<input type="password" name="password" id="password"
+									class="form-control">
+							</div>
+							<div class="mb-3">
+								<span><input id="remember-me" name="remember-me"
+									type="checkbox"></span> <label for="remember-me"
+									class="form-label"> <span>Remember me</span> 
+								</label>
+							</div>
+
+							<div class="mb-3 text-center">
+								<input type="submit" name="submit"
+									class="btn btn-info btn-md text-center" value="submit">
+							</div>
+							<div class="mb-3 text-center">
+
+								<a href="/createAcccount" class="text-info me-3">Register here</a> <a
+									href="/forgotPassword" class="text-info">forgot password !!</a>
+
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</body>
+</html>

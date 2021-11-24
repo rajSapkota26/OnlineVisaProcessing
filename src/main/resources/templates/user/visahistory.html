@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="user/userbase::layout(~{::section})">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<title th:text="${title}">Document</title>
+</head>
+
+<body>
+	<section>
+		<div class="card">
+        <div class="card-body">
+            <h1 class="card-title text-center">All Visa conformed list</h1>
+            <div class="row">
+            <h3 th:if="${ #lists.isEmpty(cvl)}"
+								class="text-center text-danger mt-4">List empty</h3>
+                <div class="col-md-12">
+                    <table class="table table-dark table-striped text-center" aria-describedby="#">
+                        <thead>
+                            <tr>
+                                <th scope="col">Sn</th>
+                                <th scope="col">clientName</th>
+                                <th scope="col">passportNo</th>
+                                <th scope="col">visaType</th>
+                                <th scope="col">startingDate</th>
+                                <th scope="col">endingDate</th>
+                                <th scope="col">isExpired</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="m: ${cvl}">
+                                <th scope="row" th:text="${cvl.indexOf(m)+1}">{{ i+1 }}</th>
+                                <th scope="row" th:text="${m.clientName}">{{ i+1 }}</th>
+                                <th scope="row" th:text="${m.passportNo}">{{ v.visaForm.fullName }}</th>
+                                <th scope="row" th:text="${m.visaType}">{{ v.startingDate }}</th>
+                                <td th:text="${m.startingDate}">{{v.endingDate}}</td>
+                                <td th:text="${m.endingDate}">{{v.expired}}</td>
+                                <td th:text="${m.isExpired}"> {{v.conformed}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+	</section>
+
+
+
+</body>
+</html>

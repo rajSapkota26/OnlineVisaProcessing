@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="user/userbase::layout(~{::section})">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<title th:text="${title}">Document</title>
+</head>
+
+<body>
+	<section>
+		<div class="container-fluid">
+			<div class="conatiner mt-3 border border-info p-2">
+				<div class="row">
+					<div class="col-md-6 offset-md-3">
+						<h1 class="text-center mt-4">Your Details</h1>
+						<div class="text-center">
+
+							<img  th:src="@{'/img/' +${pData.profile}}" 
+							 class="rounded rounded-circle mb-2"
+								alt="Profile Image" width="150" height="150" />
+						</div>
+						<table class="table table-info text-center"
+							aria-describedby="table">
+							<thead>
+								<tr>
+
+									<th scope="col">Name</th>
+									<th scope="col" th:text="${pData.firstName + pData.middleName + pData.lastName}">{{}}{{}}{}</th>
+								</tr>
+								<tr>
+									<th scope="col">Parent</th>
+									<th scope="col" th:text="${pData.parentName}">{}</th>
+								</tr>
+								<tr>
+									<th scope="col">Address</th>
+									<th scope="col" th:text="${pData.road +pData.street+pData.city +pData.country}">{}}</th>
+								</tr>
+								<tr>
+									<th scope="col">Date Of Birth</th>
+									<th scope="col" th:text="${pData.dateOfBirth}">}</th>
+								</tr>
+								<tr>
+									<th scope="col">Gender</th>
+									<th scope="col" th:text="${pData.gender}">{}</th>
+								</tr>
+								<tr>
+									<th scope="col">Passport No</th>
+									<th scope="col" th:text="${pData.passportNo}">{}</th>
+								</tr>
+								<tr>
+									<th scope="col">Email</th>
+									<th scope="col" th:text="${user.email}">{}</th>
+								</tr>
+
+							</thead>
+						</table>
+
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</section>
+
+
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="hr/hrbase::layout(~{::section})">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<title th:text="${title}">Document</title>
+</head>
+
+<body>
+	<section>
+		<div class="container-fluid bg-light">
+			<div class="row p-2">
+				<div class="col-md-10 offset-md-1">
+					<div class="card p-3">
+						<div class="text-center">
+							<h3 th:text="${pData.firstName +pData.middleName+pData.lastName+ ' Personal Details' }">{} {{}}
+								{{}} </h3>
+
+						</div>
+						<div class="text-center">
+							<img th:src="@{'/img/' +${pData.profile}}" alt="Profile Pic" height="250"
+								width="250">
+						</div>
+						<div class="row">
+							<div class="col-md-7">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label" >parentName:
+									<span th:text="${pData.parentName}"></span>	</label>
+								</div>
+							</div>
+							<div class="col-md-5">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label" >Gender:
+									<span th:text="${pData.gender}"></span>	</label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-7">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">Country:
+									<span th:text="${pData.country}"></span>	</label>
+								</div>
+							</div>
+							<div class="col-md-5">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">Nationality:
+										<span th:text="${pData.nationality}"></span></label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-7">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">Address:
+									<span th:text="${pData.street+', '+pData.road+', '+pData.city+', '+pData.zipcode}"></span></label>
+								</div>
+							</div>
+							<div class="col-md-5">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">DateOfBirth:
+										<span th:text="${pData.dateOfBirth}"></span></label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-7">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">PassportNo:
+										<span th:text="${pData.passportNo}"></span></label>
+								</div>
+							</div>
+							<div class="col-md-5">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">PassportIssueDate:
+										<span th:text="${pData.passportIssueDate}"></span></label>
+								</div>
+							</div>
+						</div>
+						<div class="text-center mt-4 mb-4 d-grid gap-2">
+							<a class="btn btn-outline-primary "
+								href="/hr/showVisaAppliedFormsList">Review Done !!</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</section>
+
+
+
+</body>
+</html>

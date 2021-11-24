@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="hr/hrbase::layout(~{::section})">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<title th:text="${title}">Document</title>
+</head>
+
+<body>
+	<section>
+		<div class="">
+			<div class="card">
+				<div class="card-body ">
+					<h1 class="card-title text-center">Update Visa Types</h1>
+					<div class="row">
+						<div class="col-md-6 offset-md-3">
+							<form th:object="${vt}" method="post" th:action="@{/hr/updatingvisatype}">
+
+								<div class="mb-3">
+									<input  name="id" th:value="${vt.id}"
+										type="text" class="form-control" hidden="true" id="exampleInputPassword1">
+								</div>
+								<div class="mb-3">
+									<label for="exampleInputPassword1" class="form-label">Visa
+										Name</label> <input  name="name" th:value="${vt.name}"
+										type="text" class="form-control" id="exampleInputPassword1">
+								</div>
+								<div class="mb-3">
+									<label for="exampleInputPassword1" class="form-label">Duration</label>
+									<input name="timePeriod"th:value="${vt.timePeriod}"
+										type="text" class="form-control" id="exampleInputPassword1">
+								</div>
+								<div class="mb-3">
+									<label for="exampleInputPassword1" class="form-label">Applied
+										Fee</label> <input name="visaAmount" type="text"th:value="${vt.visaAmount}"
+										class="form-control" id="exampleInputPassword1">
+								</div>
+								<div class="mb-3">
+									<label for="exampleInputPassword1" class="form-label">visa
+										description</label>
+									<textarea name="description"class="form-control"th:text="${vt.description}"
+									 id="exampleInputPassword1"></textarea>
+								</div>
+								<div class="text-center m-2">
+									<button type="submit" class="btn btn-outline-primary me-3">Submit</button>
+									<button type="reset" class="btn btn-outline-danger">Reset</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+</body>
+</html>

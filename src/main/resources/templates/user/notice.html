@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="user/userbase::layout(~{::section})">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<title th:text="${title}">Document</title>
+</head>
+
+<body>
+	<section>
+		<div class="container-fluid">
+			<div class="conatiner mt-3 border border-info p-2">
+				<div class="row">
+					<div class="col-md-6  mb-3">
+						<h2 class="text-center mt-4">Official Notice</h2>
+						<div class="row">
+							<h3 th:if="${ #lists.isEmpty(officenotice)}"
+								class="text-center text-danger mt-4">No Notice</h3>
+							<div class="col-md-12  mb-3" th:each="m: ${officenotice}">
+
+								<div class="card">
+									<div class="card-body">
+										<h3 class="card-title  fs-3" th:text="${m.title}">{}</h3>
+										<div class="text-center">
+											<img th:src="@{'/img/' +${m.image}}" height="350" width="500"
+												alt="">
+										</div>
+										<p th:text="${m.content}">{}</p>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6  mb-3">
+						<div class="row">
+							<h2 class="text-center mt-4">Personal Notice</h2>
+							<div class="col-md-12  mb-3" th:each="n: ${notices}">
+								<div class="card">
+
+									<div class="card-body">
+										<h3 class="card-title  fs-3" th:text="${n.title}">{}</h3>
+										<div class="text-center">
+											<img th:src="@{'/img/' +${n.image}}" height="350" width="500"
+												alt="">
+										</div>
+										<p th:text="${n.content}">{}</p>
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+</body>
+</html>

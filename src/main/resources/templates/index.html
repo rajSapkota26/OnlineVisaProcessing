@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+          th:replace="homebase::layout(~{::section})">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<title th:text="${title}">Document</title>
+</head>
+
+<body>
+<section>
+	
+	<div class="container-fluid p-0">
+	
+		<div
+			class="position-relative overflow-hidden p-3 p-md-5  text-center bgC">
+			<div class="row ">
+				<div class="col-md-7 my-5 ">
+					<h1 class="display-4 fw-normal my-5">Electronic visa</h1>
+					<p class="lead fw-normal my-5">And an even wittier subheading
+						to boot. Jumpstart your marketing efforts with this example based
+						on Apple’s marketing pages.</p>
+					<a class="myBtn-2" href="/login">get Started</a>
+				</div>
+				<div class="col-md-5 ">
+					<img class="img p-4" th:src="@{/img/header.jpg}"  alt="" height="553" width="550">
+				</div>
+			</div>
+		</div>
+		
+
+	</div>
+</section>
+	
+
+
+</body>
+</html>

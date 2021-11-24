@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="user/userbase::layout(~{::section})">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<title th:text="${title}">Document</title>
+</head>
+
+<body>
+	<section>
+		<div class="container-fluid">
+			<div class="row p-3">
+				<!-- error message  -->
+				<div th:if="${session.message}"
+					th:classappend="${session.message.type}" class="alert  text-center"
+					role="alert">
+					<p th:text="${session.message.content}"></p>
+					<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+				</div>
+				<div class="col-md-3" th:each="vt: ${vtList}">
+					<div class="card shadow mt-2 bg-custom" style="width: 18rem;">
+						<div class="card-body">
+							<h3 class="card-title text-center fs-3" th:text="${vt.name}">Student
+								visa</h3>
+							<p class="card-text" th:text="${vt.description}">demo text
+								description</p>
+						</div>
+						<div class="card-body text-center">
+							<a th:href="@{'/user/applyvisa/'+${vt.id}}" class="myBtn-2">Apply</a>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</section>
+
+
+
+</body>
+</html>

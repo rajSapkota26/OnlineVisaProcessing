@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="hr/hrbase::layout(~{::section})">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<title th:text="${title}">Document</title>
+</head>
+
+<body>
+	<section>
+		<div class="container-fluid mb-4">
+			<div class="row bg-light ">
+				<div class="col-md-10 offset-md-1 ">
+					<div class="text-center">
+						<h3>FORWARDING THIS FORM</h3>						
+					</div>					
+					<form th:action="@{/hr/updatingvisaform}" method="post" th:object="${vt}">
+						
+						<div class="mb-3">
+							<label for="exampleInputEmail1" class="form-label">Form id</label> 
+							<input type="text" class="form-control" name="id" hidden="true"
+								id="exampleInputEmail1" aria-describedby="emailHelp"
+								 th:value="${vt.id}"
+								>
+						</div>
+						<div class="mb-3">
+							<label for="exampleInputPassword1" class="form-label">user detail are as follows:</label>
+
+						</div>
+						
+						<div class="row">
+							<div class="col-md-6">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">Passport
+										No</label> <input type="text" class="form-control"
+										id="exampleInputEmail1" name="passportNo"th:value="${vt.passportNo}"
+										aria-describedby="emailHelp">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="mb-3">
+									<div class="mb-3">
+										<label for="exampleInputEmail1" class="form-label">Place
+											of Issue</label> <input type="text" class="form-control"
+											id="exampleInputEmail1" name="passportIssuedPlace"th:value="${vt.passportIssuedPlace}"
+											aria-describedby="emailHelp">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">Passport
+										Issue Date</label> <input type="date" class="form-control"
+										id="exampleInputEmail1" name="passportIssuedDate"th:value="${vt.passportIssuedDate}"
+										aria-describedby="emailHelp">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="mb-3">
+									<div class="mb-3">
+										<label for="exampleInputEmail1" class="form-label">Passport
+											Expire Date</label> <input type="date" class="form-control"
+											id="exampleInputEmail1" name="passportExpiredDate"th:value="${vt.passportExpiredDate}"
+											aria-describedby="emailHelp">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">
+										Visa Applied from</label> <input type="text" class="form-control"
+										id="exampleInputEmail1" th:value="${vt.appliedPlace}" name="appliedPlace"
+										aria-describedby="emailHelp">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="mb-3">
+									<div class="mb-3">
+										<label for="exampleInputEmail1" class="form-label">Duration
+											Of Stay</label> <input type="text" class="form-control"
+											id="exampleInputEmail1" name="durationOfVisit"th:value="${vt.durationOfVisit}"
+											aria-describedby="emailHelp">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">
+										Number of Previous Visits:</label> <input type="text"
+										class="form-control" id="exampleInputEmail1"th:value="${vt.noOfPreviousVisit}"
+										name="noOfPreviousVisit" aria-describedby="emailHelp">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="mb-3">
+									<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">
+										Applicant name:</label> <input type="text"
+										class="form-control" id="exampleInputEmail1"
+										th:value="${vt.fullName}"
+										name="fullName" aria-describedby="emailHelp">
+								</div>
+								</div>
+							</div>
+						</div>
+						
+							
+						
+						
+						
+						<div class="text-center mt-4 mb-4">
+							<button type="submit" class="btn btn-outline-primary me-4">Forward</button>
+							<a class="btn btn-outline-danger "
+								href="/hr/showVisaAppliedFormsList">Cancel</a>
+						</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+</body>
+</html>

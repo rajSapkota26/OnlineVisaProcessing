@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="user/userbase::layout(~{::section})">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<title th:text="${title}">Document</title>
+</head>
+
+<body>
+	<section>
+
+		<div class="container-fluid ">
+			<div class="row bg-light ">
+				<div class="col-md-10 offset-md-1 ">
+
+					<div class="container">
+						<h1 class="text-center m-1">
+							Fill This Form <small class="text-danger">(Must match
+								with your passport detail) </small>
+						</h1>
+					</div>
+					<form class="mt-2" th:action="@{/user/submitInformation}"enctype="multipart/form-data" method="post" th:object="${upi}">
+						<div class="row ">
+							<div class="col-md-4">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">First
+										Name</label> <input type="text" class="form-control"
+										id="exampleInputEmail1" name="firstName"
+										aria-describedby="emailHelp" placeholder="First Name">
+										
+										
+										<input type="text" class="form-control"
+										id="exampleInputEmail1" name="userId"
+										aria-describedby="emailHelp" th:value="${user.id}" hidden="true">
+
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">Middle
+										Name</label> <input type="text" class="form-control"
+										id="exampleInputEmail1" name="middleName"
+										aria-describedby="emailHelp" placeholder="Middle Name">
+
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">Last
+										Name</label> <input type="text" class="form-control"
+										id="exampleInputEmail1" name="lastName"
+										aria-describedby="emailHelp" placeholder="Last Name">
+
+								</div>
+							</div>
+						</div>
+						<div class="row ">
+							<div class="col-md-4">
+								<div class="mb-3">
+									<label for="floatingSelect" class="form-label">Gender</label> <select
+										class="form-select" id="floatingSelect" name="gender"
+										aria-label="Floating label select example">
+										<option value="male">Male</option>
+										<option value="female">Female</option>
+										<option value="other">Other</option>
+
+									</select>
+
+								</div>
+
+
+							</div>
+							<div class="col-md-4">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">dateOfBirth</label>
+									<input type="date" class="form-control" id="exampleInputEmail1"
+										aria-describedby="emailHelp" name="dateOfBirth"
+										placeholder="dateOfBirth">
+
+								</div>
+							</div>
+							<div class="col-md-4"></div>
+						</div>
+						<div class="mb-3">
+							<label for="exampleInputEmail1" class="form-label">parent
+								Name</label> <input type="text" class="form-control"
+								id="exampleInputEmail1" aria-describedby="emailHelp"
+								name="parentName" placeholder="parent Name">
+
+						</div>
+						<div class="row mt-2">
+							<div class="col-md-4">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">Country</label>
+									<input type="text" class="form-control" id="exampleInputEmail1"
+										name="country" aria-describedby="emailHelp"
+										placeholder="Country">
+
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">City</label>
+									<input type="text" class="form-control" id="exampleInputEmail1"
+										name="city" aria-describedby="emailHelp" placeholder="City">
+
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">Street</label>
+									<input type="text" class="form-control" id="exampleInputEmail1"
+										name="street" aria-describedby="emailHelp"
+										placeholder="Street">
+
+								</div>
+							</div>
+						</div>
+						<div class="row mt-2">
+							<div class="col-md-4">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">Area</label>
+									<input type="text" class="form-control" id="exampleInputEmail1"
+										name="road" aria-describedby="emailHelp" placeholder="Area">
+
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">Zip
+										Code</label> <input type="text" class="form-control"
+										id="exampleInputEmail1" name="zipcode"
+										aria-describedby="emailHelp" placeholder="Zip Code">
+
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">Nationality</label>
+									<input type="text" class="form-control" id="exampleInputEmail1"
+										name="nationality" aria-describedby="emailHelp"
+										placeholder="Nationality">
+
+								</div>
+							</div>
+						</div>
+						<div class="row mt-2">
+							<div class="col-md-4">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">PassportNo</label>
+									<input type="text" class="form-control" id="exampleInputEmail1"
+										name="passportNo" aria-describedby="emailHelp"
+										placeholder="PassportNo">
+
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">Passport
+										Issued Date</label> <input type="date" class="form-control"
+										id="exampleInputEmail1" name="passportIssueDate"
+										aria-describedby="emailHelp" placeholder="passport Issue Date">
+
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">passport
+										Issue Place</label> <input type="text" class="form-control"
+										id="exampleInputEmail1" name="passportIssueCountry"
+										aria-describedby="emailHelp"
+										placeholder="passport Issue Place">
+
+								</div>
+							</div>
+						</div>
+						<div class="mb-3 ">
+							<label for="exampleFormControlFile1" class="form-label">Select
+								Profile Image Which should match with passport image</label> <br> <input
+								type="file" class="form-control-file " name="pf_image"
+								id="exampleFormControlFile1">
+						</div>
+						<div class="text-center m-2 mb-4">
+							<button type="submit" class="btn btn-outline-primary me-3 mb-4">Submit</button>
+							<button type="reset" class="btn btn-outline-danger mb-4">Reset</button>
+						</div>
+
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+</body>
+</html>

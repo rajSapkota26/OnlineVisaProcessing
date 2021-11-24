@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="user/userbase::layout(~{::section})">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<title th:text="${title}">Document</title>
+</head>
+
+<body>
+	<section>
+
+		<div class="container-fluid mb-4">
+			<div class="row bg-light ">
+				<div class="col-md-10 offset-md-1 ">
+					<div class="text-center">
+						<h3>NEPALESE VISA APPLICATION FORM</h3>
+						<p th:text="${'(for '+vt.name+' )'}">(For Tourist, Official and Diplomatic)</p>
+					</div>
+					<h4>The Ambassador/Consul General/Consul,</h4>
+					<form th:action="@{/user/processingvisas}"enctype="multipart/form-data" method="post" th:object="${vf}">
+						<div class="mb-3">
+							<input type="text" class="form-control" name="visaType" th:value="${vt.name}" hidden="true">
+							<input type="text" class="form-control" name="userId" th:value="${user.id}" hidden="true">
+							<input type="text" class="form-control" name="fees" th:value="${vt.visaAmount}" hidden="true">
+						</div>
+						<div class="mb-3">
+							<label for="exampleInputEmail1" class="form-label">As I
+								have to visit/ would like to visit , I request for the issuance
+								of</label> <input type="text" class="form-control"
+								id="exampleInputEmail1" aria-describedby="emailHelp"
+								name="purposeOfVisit"
+								placeholder="purpose of visit like visit, study, office visit, business">
+						</div>
+						<div class="mb-3">
+							<label for="exampleInputPassword1" class="form-label">My
+								details are as follows:</label>
+
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">Full
+										Name</label> <input type="text" class="form-control"
+										id="exampleInputEmail1" name="fullName"
+										aria-describedby="emailHelp">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">Nationality</label>
+									<input type="text" class="form-control" id="exampleInputEmail1"
+										name="nationality" aria-describedby="emailHelp">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">
+										Place of Birth</label> <input type="text" class="form-control"
+										id="exampleInputEmail1" name="birthPlace"
+										aria-describedby="emailHelp">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="mb-3">
+									<div class="mb-3">
+										<label for="exampleInputEmail1" class="form-label">Permanent
+											Address</label> <input type="text" class="form-control"
+											id="exampleInputEmail1" name=" permanentAddress"
+											aria-describedby="emailHelp">
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-md-6">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">Phone
+										No</label> <input type="text" class="form-control"
+										id="exampleInputEmail1" name="phone"
+										aria-describedby="emailHelp">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="mb-3">
+									<div class="mb-3">
+										<label for="exampleInputEmail1" class="form-label">Temporary
+											Address</label> <input type="text" class="form-control"
+											id="exampleInputEmail1" name="temporaryAddress"
+											aria-describedby="emailHelp">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">Email</label>
+									<input type="text" class="form-control" id="exampleInputEmail1"
+										name="email" aria-describedby="emailHelp">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="mb-3">
+									<div class="mb-3">
+										<label for="exampleInputEmail1" class="form-label">Occupation</label>
+										<input type="text" class="form-control"
+											id="exampleInputEmail1" name="occupation"
+											aria-describedby="emailHelp">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">Passport
+										No</label> <input type="text" class="form-control"
+										id="exampleInputEmail1" name="passportNo"
+										aria-describedby="emailHelp">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="mb-3">
+									<div class="mb-3">
+										<label for="exampleInputEmail1" class="form-label">Place
+											of Issue</label> <input type="text" class="form-control"
+											id="exampleInputEmail1" name="passportIssuedPlace"
+											aria-describedby="emailHelp">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">Passport
+										Issue Date</label> <input type="date" class="form-control"
+										id="exampleInputEmail1" name="passportIssuedDate"
+										aria-describedby="emailHelp">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="mb-3">
+									<div class="mb-3">
+										<label for="exampleInputEmail1" class="form-label">Passport
+											Expire Date</label> <input type="date" class="form-control"
+											id="exampleInputEmail1" name="passportExpiredDate"
+											aria-describedby="emailHelp">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">
+										Visa Applied from</label> <input type="text" class="form-control"
+										id="exampleInputEmail1" name="appliedPlace"
+										aria-describedby="emailHelp">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="mb-3">
+									<div class="mb-3">
+										<label for="exampleInputEmail1" class="form-label">Duration
+											Of Stay</label> <input type="text" class="form-control"
+											id="exampleInputEmail1" name="durationOfVisit"
+											aria-describedby="emailHelp">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">
+										Number of Previous Visits:</label> <input type="text"
+										class="form-control" id="exampleInputEmail1"
+										name="noOfPreviousVisit" aria-describedby="emailHelp">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="mb-3">
+									<div class="mb-3">
+										<label for="exampleInputEmail1" class="form-label">Source
+											of expenditure (please check one)</label>
+										<div class="form-control">
+											<div class="form-check form-check-inline">
+												<input class="form-check-input" type="radio"
+													id="inlineCheckbox1" name="sourceOfExpenditure"
+													value="Self"> <label class="form-check-label"
+													for="inlineCheckbox1">Self</label>
+											</div>
+											<div class="form-check form-check-inline">
+												<input class="form-check-input" type="radio"
+													id="inlineCheckbox2" name="sourceOfExpenditure"
+													value="Sponsor"> <label class="form-check-label"
+													for="inlineCheckbox2">Sponsor</label>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">
+										Last visit (If yes)</label> <input type="date" class="form-control"
+										id="exampleInputEmail1" name="lastVisit"
+										aria-describedby="emailHelp">
+								</div>
+							</div>
+							<div class="col-md-6">
+								
+							</div>
+						</div>
+						<div class="mb-3">
+							<label for="exampleInputEmail1" class="form-label">Are you holding a passport of any other country?If
+								yes, please mention 16a. Passport No.:</label> <input type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" name="otherCountryPasswordNo"
+								placeholder="passport no.">
+						</div>
+						<h4>Charge to apply visa form</h4>
+						<div class="form-check">
+						<label for="exampleInputEmail1"th:text="${'for '+vt.name+' charge be $ '+ vt.visaAmount}" class="form-label"></label>
+							 
+						</div>
+						
+						<div class="row">
+							<h3>Upload Document related to visa</h3>
+							<div class="col-md-6 m-3">
+								<ul>
+									<li>profile Image</li>
+									<li>Passport Image</li>
+									<li>Offer Latter or Visa Proposal latter</li>
+								</ul>
+							</div>
+							<div class="form-group">
+								<label for="file">Select Files</label> <input name="pictures"
+								id="file-input" type="file" multiple class="form-control-file">
+
+							</div>
+						</div>
+						<div class="row" id="preview">						
+							
+						</div>
+						<div class="text-center mt-4 mb-4">
+							<button type="submit" class="btn btn-outline-primary me-4">Submit</button>
+							<a class="btn btn-outline-danger ">Cancel</a>
+						</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+</body>
+</html>

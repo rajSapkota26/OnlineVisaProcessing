@@ -1,0 +1,39 @@
+.bg-custom {
+	border: 1px solid linear-gradient(45deg, #9b00e8, #f046ff);
+	background-image: linear-gradient(45deg, #9b00e8, #f046ff);
+}
+.bg-custom-2 {
+	border: 1px solid linear-gradient(45deg, #f046ff, #9b00e8);
+	background-image: linear-gradient(45deg, #f046ff, #9b00e8);
+}
+
+.myBtn-2 {
+	background: transparent;
+	width: 120px;
+	color: rgb(255, 255, 255);
+	border-radius: 25px;
+	border: 2px solid #fafafa;
+	padding: 10px;
+	box-shadow: 0px 10px 40px -10px rgba(0, 0, 0, 0.7);
+	-webkit-box-sizing: 0px 10px 40px -10px rgba(0, 0, 0, 0.7);
+	-moz-box-sizing: 0px 10px 40px -10px rgba(0, 0, 0, 0.7);
+	text-decoration: none;
+}
+
+.myBtn-2:hover {
+	border: 2px solid #eecbff;
+}
+
+.myBtn-2:focus {
+	outline: none;
+}
+
+.bgC {
+	background-image: linear-gradient(45deg, #f046ff, #9b00e8);
+}
+
+.img {
+	margin-top: -25px;
+	margin-right: 150px;
+	margin-bottom: 41px;
+}

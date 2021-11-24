@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="hr/hrbase::layout(~{::section})">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<title th:text="${title}">Document</title>
+</head>
+
+<body>
+	<section>
+		<div class="">
+			<div class="card">
+				<div class="card-body text-center"><img class="img p-4" th:src="@{/img/hrHome.png}"  alt="" height="553" width="550"></div>
+			</div>
+		</div>
+	</section>
+
+
+
+</body>
+</html>

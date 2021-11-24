@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="hr/hrbase::layout(~{::section})">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<title th:text="${title}">Document</title>
+</head>
+
+<body>
+	<section>
+		<div class="row bg-light m-2 p-1">
+			<div class="col-md-10 offset-md-1 mt-2">
+
+				<div class="container">
+					<h3 class="text-center m-1">
+						Send Notice <small class="text-danger">(To- <span
+							th:text="${user.name}"></span>)
+						</small>
+					</h3>
+				</div>
+				<form class="mt-2"th:action="@{/hr/sendingNotice}"enctype="multipart/form-data" method="post" th:object="${notice}">
+					<input type="text" class="form-control" id="exampleInputEmail1"
+						aria-describedby="emailHelp" name="userId" th:value="${user.id}" hidden="true">
+					<div class="mb-3">
+						<label for="exampleInputEmail1" class="form-label">title</label> <input
+							type="text" class="form-control" id="exampleInputEmail1"
+							aria-describedby="emailHelp" name="title" placeholder="Title">
+
+					</div>
+					<div class="mb-3">
+						<label for="exampleInputEmail1" class="form-label">Content</label>
+						<textarea class="form-control" id="exampleInputEmail1"
+							aria-describedby="emailHelp" rows="9" name="content"
+							placeholder="Details"></textarea>
+
+					</div>
+
+					<div class="mb-3 ">
+						<label for="exampleFormControlFile1" class="form-label">Select
+							Notice Image </label> <br> <input type="file" name="notice_image"
+							class="form-control-file " id="exampleFormControlFile1">
+					</div>
+					<div class="text-center m-2">
+						<button type="submit" class="btn btn-outline-primary me-3">Send</button>
+						<button type="reset" class="btn btn-outline-danger me-3">Reset</button>
+						<a class="btn btn-outline-success ">back</a>
+					</div>
+
+				</form>
+
+			</div>
+		</div>
+	</section>
+
+
+
+</body>
+</html>

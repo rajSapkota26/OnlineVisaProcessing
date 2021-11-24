@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="admin/adminbase::layout(~{::section})">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<title th:text="${title}">Document</title>
+</head>
+
+<body>
+	<section>
+	<div class="container-fluid bg-light">
+    <div class="row p-2">
+        <div class="col-md-10 offset-md-1">
+            <div class="card p-3">
+                <div class="text-center">
+                    <h3>NEPALESE VISA APPLICATION FORM</h3>
+                    <p> (For <span th:text="${vform.visaType}"></span> )</p>
+                </div>
+                <h4>The Ambassador/Consul General/Consul,</h4>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">As I have to visit/ would like to visit ,
+                        I request for the issuance : <b th:text="${vform.purposeOfVisit}">{}</b></label>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">My details are as follows:</label>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Full Name:
+                                <b th:text="${vform.fullName}">{}</b></label>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                         <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label"> Place of Birth:
+                                <b th:text="${vform.birthPlace}">{}</b></label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Nationality:
+                                <b th:text="${vform.nationality}">{}</b></label>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Permanent Address :
+                                <b th:text="${vform.permanentAddress}">{}</b></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Phone No :
+                             <b th:text="${vform.phone}">{}</b></label>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Temporary Address :
+                                <b th:text="${vform.temporaryAddress}">{}</b></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email : 
+                            <b th:text="${vform.email}">{}</b></label>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Occupation :
+                                <b th:text="${vform.occupation}">{}</b></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Passport No :
+                                <b th:text="${vform.passportNo}">{}</b></label>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Place of Issue:
+                                <b th:text="${vform.passportIssuedPlace}">{}</b></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Passport Issue Date:
+                                <b th:text="${vform.passportIssuedDate}">{}</b></label>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Passport Expire Date:
+                                <b th:text="${vform.passportExpiredDate}">{}</b> </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label"> Visa Applied from:
+                                <b th:text="${vform.appliedPlace}">{}</b></label>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Duration Of Stay
+                                <b th:text="${vform.durationOfVisit}">{}</b></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label"> Number of Previous
+                                Visits: <b th:text="${vform.noOfPreviousVisit}">{}</b>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Source of expenditure:
+                                <b th:text="${vform.sourceOfExpenditure}">{}</b> </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="mb-2">
+                            <label for="exampleInputEmail1" class="form-label"> Last visit (If yes) :
+                                <b th:text="${vform.lastVisit}">{}</b></label>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="mb-2">
+                            <label for="exampleInputEmail1" class="form-label">passport no of
+                                country: <b th:text="${vform.otherCountryPasswordNo}">{}</b> </label>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <h1> Document related to visa</h1>
+                    <div class="col-md-4"> <img th:src="@{'/img/' +${vform.userPic}}"   width="200px" height="200px" alt="userPic">
+                    </div>
+                    <div class="col-md-4"> <img th:src="@{'/img/' +${vform.passportPic}}" width="200px" height="200px"
+                            alt="passport pic">
+                    </div>
+                    <div class="col-md-4"> <img th:src="@{'/img/' +${vform.vpPic}}" width="200px" height="200px" alt="Visa form pic">
+                    </div>
+                </div>
+                <div class="text-center mt-4 mb-4 d-grid gap-2">
+                    <a class="btn btn-outline-primary " href="/admin/allvisaapplications">Review Done !!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+	</section>
+
+</body>
+</html>

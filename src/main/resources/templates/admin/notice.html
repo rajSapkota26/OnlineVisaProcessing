@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="admin/adminbase::layout(~{::section})">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<title th:text="${title}">Document</title>
+</head>
+
+<body>
+	<section>
+		<div class="">
+			<div class="card">
+				<div class="card-body ">
+					<div class="row">
+						<div class="col-md-10 offset-md-1 ">							
+								<h1 class="text-center ">Send Notice</h1>	
+								<!-- error message  -->
+								<div th:if="${session.message}"
+									th:classappend="${session.message.type}"
+									class="alert  text-center" role="alert">
+									<p th:text="${session.message.content}"></p>
+									<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+								</div>						
+							<form th:action="@{/admin/sendingNotice}"enctype="multipart/form-data" method="post" th:object="${notice}">
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">title</label>
+									<input type="text" class="form-control" id="exampleInputEmail1"
+										aria-describedby="emailHelp" 
+										name="title" placeholder="Title">
+
+								</div>
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label">Content</label>
+									<textarea  class="form-control"
+										id="exampleInputEmail1" aria-describedby="emailHelp" rows="10"
+										 name="content"
+										placeholder="Details"></textarea>
+
+								</div>
+
+								<div class="mb-3 ">
+									<label for="exampleFormControlFile1" class="form-label">Select
+										Notice Image </label> <br> <input type="file"name="notice_image"
+										class="form-control-file " id="exampleFormControlFile1"
+										>
+								</div>
+								<div class="text-center m-2 mb-4">
+									<button type="submit" class="btn btn-outline-primary me-3">Send</button>
+									<button type="reset" class="btn btn-outline-danger me-3">Reset</button>
+									<a 
+										class="btn btn-outline-success ">back</a>
+								</div>
+
+							</form>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="admin/adminbase::layout(~{::section})">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<title th:text="${title}">Document</title>
+</head>
+
+<body>
+	<section>
+		<div class="">
+			<div class="card">
+				<div class="card-body text-center">
+					<h1 class="card-title text-center">All Active Users</h1>
+					<div class="row">
+						<div class="col-md-8 offset-md-2">
+							<table class="table  table-striped text-center"
+								aria-describedby="#">
+								<thead>
+									<tr>
+										<th scope="col">Sn</th>
+										<th scope="col">User email</th>
+										<th scope="col">User name</th>
+										<th scope="col">User Roles</th>
+
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="u: ${users}">
+										<th scope="row" th:text="${users.indexOf(u)+1}">{{ i+1 }}</th>
+										<th scope="row" th:text="${u.email}">{{ v.email }}</th>
+										<td th:text="${u.name}">{{v.name}}</td>
+										<td th:text="${u.role}">{{v.authorities[0].authority}}</td>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+</body>
+</html>
